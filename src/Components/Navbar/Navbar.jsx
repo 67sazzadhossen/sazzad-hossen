@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import logo from "../../../public/assets/logo.png";
 
 const Navbar = () => {
   const navLinks = [
@@ -9,10 +11,32 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="navbar ">
-      <div className="navbar-start">
+    <div className="navbar lg:px-8 justify-between">
+      <div className="navbar-start hidden lg:flex">
+        <ul className="flex gap-24 ">
+          {navLinks.map((link, idx) => (
+            <li
+              className="font-semibold tracking-wider hover:scale-[135%]  duration-200"
+              key={idx}
+            >
+              <Link
+                className="rounded-none relative py-2 after:content-[''] after:absolute after:h-[3px] after:bg-gray-800 after:left-0 after:bottom-0 after:origin-left after:w-0 hover:after:w-full after:duration-300"
+                href={link.path}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="navbar-center">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-xs btn-ghost lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -39,27 +63,34 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link href={"/"} className=" flex flex-col items-center ">
+          <div className="border-[6px] border-black p-1 rounded-full">
+            {" "}
+            <Image alt="logo" height={35} width={35} src={logo}></Image>
+          </div>
+          {/* <h1 className="font-bold">SAZZAD</h1> */}
+        </Link>
       </div>
-      <div className="navbar-end hidden lg:flex">
-        <ul className="flex gap-16 ">
-          {navLinks.map((link, idx) => (
-            <li
-              className="font-semibold tracking-wider hover:scale-[135%]  duration-200"
-              key={idx}
+
+      <div className="lg:navbar-end flex">
+        <ul className="flex lg:gap-16 gap-4">
+          <li className="font-semibold tracking-wider hover:scale-[135%]  duration-200">
+            <Link
+              className="rounded-none relative py-2 after:content-[''] after:absolute after:h-[3px] after:bg-gray-800 after:left-0 after:bottom-0 after:origin-left after:w-0 hover:after:w-full after:duration-300"
+              href={"/login"}
             >
-              <Link
-                className="rounded-none relative py-2 after:content-[''] after:absolute after:h-[3px] after:bg-gray-800 after:left-0 after:bottom-0 after:origin-left after:w-0 hover:after:w-full after:duration-300"
-                href={link.path}
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
+              Login
+            </Link>
+          </li>
+          <li className="font-semibold tracking-wider hover:scale-[135%]  duration-200">
+            <Link
+              className="rounded-none relative py-2 after:content-[''] after:absolute after:h-[3px] after:bg-gray-800 after:left-0 after:bottom-0 after:origin-left after:w-0 hover:after:w-full after:duration-300"
+              href={"/sign-up"}
+            >
+              Sign Up
+            </Link>
+          </li>
         </ul>
-        <div className="ml-20">
-          <a className="btn">Button</a>
-        </div>
       </div>
     </div>
   );
