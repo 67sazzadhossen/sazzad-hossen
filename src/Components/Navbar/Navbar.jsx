@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../public/assets/logo.png";
+import { paragraphFont } from "@/lib/Font";
 
 const Navbar = () => {
   const navLinks = [
@@ -11,12 +12,14 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="navbar lg:px-8 justify-between">
-      <div className="navbar-start hidden lg:flex">
+    <div
+      className={`navbar lg:px-10 justify-between sm:py-4 fixed  z-50  backdrop-blur-sm ${paragraphFont.className}`}
+    >
+      <div className="navbar-start hidden lg:flex blur-none">
         <ul className="flex gap-24 ">
           {navLinks.map((link, idx) => (
             <li
-              className="font-semibold tracking-wider hover:scale-[135%]  duration-200"
+              className=" tracking-wider hover:scale-[135%]  duration-200"
               key={idx}
             >
               <Link
@@ -30,7 +33,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="navbar-center">
+      <div className="navbar-center ">
         <div className="dropdown">
           <div
             tabIndex={0}
@@ -74,7 +77,7 @@ const Navbar = () => {
 
       <div className="lg:navbar-end flex">
         <ul className="flex lg:gap-16 gap-4">
-          <li className="font-semibold tracking-wider hover:scale-[135%]  duration-200">
+          <li className="tracking-wider hover:scale-[135%]  duration-200">
             <Link
               className="rounded-none relative py-2 after:content-[''] after:absolute after:h-[3px] after:bg-gray-800 after:left-0 after:bottom-0 after:origin-left after:w-0 hover:after:w-full after:duration-300"
               href={"/login"}
@@ -82,7 +85,7 @@ const Navbar = () => {
               Login
             </Link>
           </li>
-          <li className="font-semibold tracking-wider hover:scale-[135%]  duration-200">
+          <li className="tracking-wider hover:scale-[135%]  duration-200">
             <Link
               className="rounded-none relative py-2 after:content-[''] after:absolute after:h-[3px] after:bg-gray-800 after:left-0 after:bottom-0 after:origin-left after:w-0 hover:after:w-full after:duration-300"
               href={"/sign-up"}

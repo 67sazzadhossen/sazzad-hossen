@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/Components/Navbar/Navbar";
 import Footer from "@/Components/Footer/Footer";
+import { paragraphFont } from "@/lib/Font";
 
 export const metadata = {
   title: "Sazzad | Home",
@@ -10,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`scroll-mx-0 ${paragraphFont.className} `}>
         <Navbar />
         {children}
         <Footer />

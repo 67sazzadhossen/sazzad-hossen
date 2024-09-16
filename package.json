@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "sazzad-hossen",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,9 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "framer-motion": "^11.5.4",
     "next": "14.2.10",
+    "rc-scrollbars": "^1.1.6",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-fast-marquee": "^1.6.5",
+    "react-parallax-tilt": "^1.7.239",
+    "react-tsparticles": "^2.12.2",
+    "simple-parallax-js": "^6.0.1",
+    "three": "^0.168.0"
   },
   "devDependencies": {
     "daisyui": "^4.12.10",
